@@ -1,0 +1,14 @@
+{% include 'partials/header.html' %}
+
+    <a href='/events'>GO BACK</a>
+    <br>
+    <h1>{{event.title}}</h1>
+    <p>{{event.text}}</p>
+    <p>{{event.date}}</p>
+    <p>{{event.duration}}</p>
+    <a href="{% url 'edit' id=event.id %}">EDIT</a>
+    <a href="{% url 'delete' id=event.id %}">DELETE</a>
+    <br>
+    Created on {{event.created_at}}
+
+{% include 'partials/footer.html' %}

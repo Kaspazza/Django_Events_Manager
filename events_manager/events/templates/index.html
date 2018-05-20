@@ -1,0 +1,15 @@
+{% include 'partials/header.html' %}
+
+<a href="/events/add">ADD EVENT</a>
+
+  {% if events|length_is:"0" %}
+    <h1>No Events be first to add one!</h1>
+  {% else %}
+    <ul>
+      {% for event in events %}
+        <li><a href="/events/details/{{event.id}}">{{event.title}}:</a> {{event.text|truncatechars:50}}  Date:{{event.date}} Duration:{{event.duration}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% include 'partials/footer.html' %}

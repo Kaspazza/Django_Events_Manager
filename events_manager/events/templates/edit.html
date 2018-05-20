@@ -1,0 +1,22 @@
+{% include 'partials/header.html' %}
+
+<form action="{% url 'update' id=event.id  %}" method="post">
+  {% csrf_token %}
+    <label for="title">Title</label><br/>
+    <input type="text" maxlength="50" name="title" id="title" value={{event.title}} placeholder="Title" required/>
+    <br>
+    <label for="text">Text</label><br/>
+    <textarea name="text" id="text" placeholder="your text goes here" required>{{event.text}}</textarea>
+    <br>
+    <label for="date">Date</label><br/>
+    <input type="date" name="date" id="name" value={{event.date|date:"Y-m-d"}} required/>
+    <br>
+    <label for="duration">Duration</label><br/>
+    <input type="number" min=0 max=999 name="duration" id="duration" value={{event.duration}} placeholder="N/A"/>
+    <br><br>
+    <input type="submit" value="Update"/>
+</form>
+<br>
+<a href="/events">GO BACK!</a>
+
+{% include 'partials/footer.html' %}

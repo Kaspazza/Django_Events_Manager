@@ -1,0 +1,22 @@
+{% include 'partials/header.html' %}
+
+<form action="{% url 'add' %}" method="post">
+  {% csrf_token %}
+    <label for="title">Title</label><br/>
+    <input type="text" maxlength="50" name="title" id="title" placeholder="Title" required/>
+    <br>
+    <label for="text">Text</label><br/>
+    <textarea name="text" id="text" placeholder="your text goes here" required></textarea>
+    <br>
+    <label for="date">Date</label><br/>
+    <input type="date" name="date" id="name" required/>
+    <br>
+    <label for="duration">Duration</label><br/>
+    <input type="number" min=0 max=999 name="duration" id="duration" placeholder="N/A"/>
+    <br><br>
+    <input type="submit" value="Submit"/>
+</form>
+<br>
+<a href="/events">GO BACK!</a>
+
+{% include 'partials/footer.html' %}
