@@ -38,7 +38,6 @@ def add(request):
 
         return redirect('/events')
     else:
-        messages.error(request,"Something went wrong...")
 
         return render(request, 'add.html')
 

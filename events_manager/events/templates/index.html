@@ -1,15 +1,65 @@
 {% include 'partials/header.html' %}
 
-<a href="/events/add">ADD EVENT</a>
-
   {% if events|length_is:"0" %}
-    <h1>No Events be first to add one!</h1>
+  <div class="empty_database">
+    <h1>No events here! Be first to <a href="/events/add">add one!</a></h1>
+  </div>
   {% else %}
-    <ul>
-      {% for event in events %}
-        <li><a href="/events/details/{{event.id}}">{{event.title}}:</a> {{event.text|truncatechars:50}}  Date:{{event.date}} Duration:{{event.duration}}</li>
-      {% endfor %}
-    </ul>
+  <div class="limiter">
+		<div class="container-table100">
+      <div class="icon_add">
+        <a href="/events/add"><i class="fas fa-plus-circle fa-4x"></i></a>
+      </div>
+			<div class="wrap-table100">
+				<div class="table100 ver1">
+					<div class="table100-firstcol">
+						<table>
+							<thead>
+								<tr class="row100 head">
+                  <th class="cell100 column0">Nr</th>
+									<th class="cell100 column1">Event Name</th>
+								</tr>
+							</thead>
+							<tbody>
+                {% for event in events %}
+  								<tr class="row100 body">
+                    <td class="cell100 column0">{{forloop.counter0|add:1}}</td>
+  									<td class="cell100 column1"><a href="/events/details/{{event.id}}">{{event.title}}</a></td>
+  								</tr>
+                {% endfor %}
+							</tbody>
+						</table>
+					</div>
+					<div class="wrap-table100-nextcols js-pscroll">
+						<div class="table100-nextcols">
+							<table>
+								<thead>
+									<tr class="row100 head">
+										<th class="cell100 column2">Description</th>
+										<th class="cell100 column3">Start date</th>
+										<th class="cell100 column4">Duration(h)</th>
+										<th class="cell100 column5">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+                  {% for event in events %}
+  									<tr class="row100 body">
+  										<td class="cell100 column2">{{event.text|truncatechars:50}}</td>
+  										<td class="cell100 column3">{{event.date}}</td>
+  										<td class="cell100 column4">{{event.duration}}</td>
+  										<td class="cell100 column5">
+                          <a href="{% url 'edit' id=event.id %}"><i class="fas fa-edit fa-2x"></i></a>
+                          <a href="{% url 'delete' id=event.id %}"><i class="fas fa-trash-alt fa-2x"></i></a></td>
+  									</tr>
+                  {% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
   {% endif %}
 
 {% include 'partials/footer.html' %}

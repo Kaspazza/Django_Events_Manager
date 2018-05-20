@@ -1,22 +1,35 @@
 {% include 'partials/header.html' %}
-
-<form action="{% url 'update' id=event.id  %}" method="post">
-  {% csrf_token %}
-    <label for="title">Title</label><br/>
-    <input type="text" maxlength="50" name="title" id="title" value={{event.title}} placeholder="Title" required/>
-    <br>
-    <label for="text">Text</label><br/>
-    <textarea name="text" id="text" placeholder="your text goes here" required>{{event.text}}</textarea>
-    <br>
-    <label for="date">Date</label><br/>
-    <input type="date" name="date" id="name" value={{event.date|date:"Y-m-d"}} required/>
-    <br>
-    <label for="duration">Duration</label><br/>
-    <input type="number" min=0 max=999 name="duration" id="duration" value={{event.duration}} placeholder="N/A"/>
-    <br><br>
-    <input type="submit" value="Update"/>
-</form>
-<br>
-<a href="/events">GO BACK!</a>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Adding new event</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="row">
+      <a href="/events"><i class="fas fa-arrow-circle-left fa-4x"></i></a>
+        <h1 style="text-align: center">Create a new Event</h1>
+        <div style="width: 30%; margin: 25px auto;">
+          <form action="{% url 'update' id=event.id  %}" method="post">
+            {% csrf_token %}
+              <label for="title">Title</label><br/>
+              <input type="text" maxlength="50" name="title" id="title" value={{event.title}} placeholder="Title" required/>
+              <br>
+              <label for="text">Text</label><br/>
+              <textarea name="text" id="text" placeholder="your text goes here" required>{{event.text}}</textarea>
+              <br>
+              <label for="date">Date</label><br/>
+              <input type="date" name="date" id="name" value={{event.date|date:"Y-m-d"}} required/>
+              <br>
+              <label for="duration">Duration</label><br/>
+              <input type="number" min=0 max=999 name="duration" id="duration" value={{event.duration}} placeholder="N/A"/>
+              <br><br>
+              <input type="submit" value="Update"/>
+          </form>
+        </div>
+      </div>
+  </body>
+</html>
 
 {% include 'partials/footer.html' %}
