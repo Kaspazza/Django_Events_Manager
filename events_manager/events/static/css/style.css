@@ -7,6 +7,11 @@ html {
 
 #main_name{
    font-size:4em;
+	 color:white;
+}
+
+.navbar{
+	background-color: #24C6DC;
 }
 
 nav li{
@@ -46,8 +51,6 @@ a:hover {
 	text-decoration: none;
 }
 
-h1,h2,h3,h4,h5,h6 {margin: 0px;}
-
 p {margin: 0px;}
 
 ul, li {
@@ -55,20 +58,9 @@ ul, li {
 	list-style-type: none;
 }
 
-/* ------------------------------------ */
-input {
-  display: block;
-	outline: none;
-	border: none !important;
-}
-
 textarea {
   display: block;
   outline: none;
-}
-
-textarea:focus, input:focus {
-  border-color: transparent !important;
 }
 
 /* ------------------------------------ */
@@ -134,10 +126,10 @@ iframe {
   width: 100%;
   margin: 0 auto;
   background: #fa71cd;
-  background: -webkit-linear-gradient(bottom, #c471f5, #fa71cd);
-  background: -o-linear-gradient(bottom, #c471f5, #fa71cd);
-  background: -moz-linear-gradient(bottom, #c471f5, #fa71cd);
-  background: linear-gradient(bottom, #c471f5, #fa71cd);
+  background: -webkit-linear-gradient(bottom, #514A9D, #24C6DC);
+  background: -o-linear-gradient(bottom, #514A9D, #24C6DC);
+  background: -moz-linear-gradient(bottom, #514A9D, #24C6DC);
+  background: linear-gradient(bottom, #514A9D, #24C6DC);
 
 
 }
