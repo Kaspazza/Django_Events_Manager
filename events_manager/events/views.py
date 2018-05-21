@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
+from django.core.exceptions import ValidationError
 
 from .models import Event
 
@@ -61,11 +62,13 @@ def update(request, id):
     event.date = request.POST['date']
     event.duration = request.POST['duration']
 
-    messages.success(request,"Successfully Updated")
-
-    event.save()
-
-    return redirect('/events')
+    try:
+        event.save()
+        messages.success(request,"Successfully Updated")
+    except ValidationError as e:
+        messages.warning(request,"Are you sure date was right?")
+    finally:
+        return redirect('/events')
 
 
 def delete(request, id):

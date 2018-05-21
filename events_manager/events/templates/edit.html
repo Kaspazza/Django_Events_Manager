@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Edditing new event</title>
-    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-  </head>
-  <body>
+{% include 'partials/header.html' %}
+
     <div class="row">
-      <a href="/events"><i class="fas fa-arrow-circle-left fa-4x"></i></a>
-        <h1 style="text-align: center">Edit event: {{event.title}}</h1>
-        <div style="width: 30%; margin: 25px auto;">
+      <div class="arrow">
+        <a href="/events"><i class="fas fa-arrow-circle-left fa-4x"></i></a>
+      </div>
+      <div class="container">
           <form action="{% url 'update' id=event.id  %}" method="post">
+            <h1>Edit event: {{event.title}}</h1>
             {% csrf_token %}
               <label for="title">Title</label><br/>
               <input type="text" maxlength="50" name="title" id="title" value={{event.title}} placeholder="Title" required/>
@@ -28,5 +24,5 @@
           </form>
         </div>
       </div>
-  </body>
-</html>
+
+{% include 'partials/footer.html' %}
