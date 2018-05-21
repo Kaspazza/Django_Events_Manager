@@ -4,6 +4,7 @@ from django import forms
 from django.db import models
 from django.core.exceptions import ValidationError
 
+
 class Event(models.Model):
     title = models.CharField(max_length=50)
     text = models.TextField()

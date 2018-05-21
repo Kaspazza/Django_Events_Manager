@@ -1,4 +1,4 @@
-html {
+html, body {
 	height: 100%;
 	font-family: sans-serif;
 	background: #fa71cd;
@@ -6,6 +6,9 @@ html {
 	background: -o-linear-gradient(bottom, #514A9D, #24C6DC);
 	background: -moz-linear-gradient(bottom, #514A9D, #24C6DC);
 	background: linear-gradient(bottom, #514A9D, #24C6DC);
+	margin: 0px;
+	padding: 0px;
+
 }
 /* Header styling */
 
